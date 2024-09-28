@@ -1,7 +1,8 @@
 # alpine, busybox, scratch
-FROM scratch
+FROM ubuntu:latest
 COPY proxy /
 COPY Shanghai /etc/localtime/
 COPY ca-certificates.crt /etc/ssl/certs/
+
 ENTRYPOINT ["/proxy"]
-CMD ["--version"]
+CMD ["http -t tcp -p 0.0.0.0:8081"]
