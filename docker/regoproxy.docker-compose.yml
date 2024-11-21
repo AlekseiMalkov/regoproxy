@@ -5,10 +5,18 @@ services:
   regoproxy:
     stdin_open: true # docker run -i
     tty: true        # docker run -t
-
+    mac_address: 02:42:ac:aa:bb:d3
+    networks: 
+      nginx_vlan:
+        ipv4_address: 192.168.2.189
+        # url to register: https://gpm.goproxyauth.com/?lang=en-US
+        #machine_code 4f988dd07ef952d90e81aaafff8bc3bb
     build: 
       context: .
       dockerfile: Dockerfile
-    ports:
-      - 8000:8081
+    # ports:
+    #   - 8000:80881
 
+networks:
+  nginx_vlan:
+    external: true 

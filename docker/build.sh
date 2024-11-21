@@ -10,9 +10,10 @@ rm -rf $CLEAN
 mkdir goproxy
 
 cd goproxy
-wget https://github.com/snail007/goproxy/releases/download/v$ver/proxy-linux-amd64.tar.gz
+#wget https://github.com/snail007/goproxy/releases/download/v$ver/proxy-linux-amd64.tar.gz
+wget https://github.com/snail007/goproxy/releases/download/v$ver/proxy-linux-amd64_commercial.tar.gz
 #wget https://mirrors.host900.com/snail007/goproxy/proxy-linux-amd64.tar.gz
-tar zxf proxy-linux-amd64.tar.gz
+tar zxf proxy-linux-amd64_commercial.tar.gz
 mv proxy ../
 cd ..
 
