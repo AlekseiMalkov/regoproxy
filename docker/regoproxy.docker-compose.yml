@@ -38,29 +38,15 @@ services:
   regoproxy:
     stdin_open: true # docker run -i
     tty: true        # docker run -t
-    # mac_address: 02:42:ac:aa:bb:d4
     network_mode: "container:ovpn-tzone-dedic"    
 
     depends_on:
       openvpn-dedic:
         condition: service_healthy
 
-    # ports:
-    #   - 8881:8881/tcp
-    #   - 18881:18881/tcp
-    #   - 8881:8881/udp
-    #   - 18881:18881/udp
-
-    # networks: 
-    #   nginx_vlan:
-    #     ipv4_address: 192.168.2.189
-    #     # url to register: https://gpm.goproxyauth.com/?lang=en-US
-    #     #machine_code d10b2cc0f5486616522d0a0280bf9d83
     build: 
       context: .
       dockerfile: Dockerfile
-    # ports:
-    #   - 8000:80881
 
 networks:
   nginx_vlan:
