@@ -38,8 +38,18 @@ services:
   regoproxy:
     stdin_open: true # docker run -i
     tty: true        # docker run -t
-    mac_address: 02:42:ac:aa:bb:d4
+    # mac_address: 02:42:ac:aa:bb:d4
     network_mode: "container:ovpn-tzone-dedic"    
+
+    depends_on:
+      openvpn-dedic:
+        condition: service_healthy
+
+    # ports:
+    #   - 8881:8881/tcp
+    #   - 18881:18881/tcp
+    #   - 8881:8881/udp
+    #   - 18881:18881/udp
 
     # networks: 
     #   nginx_vlan:

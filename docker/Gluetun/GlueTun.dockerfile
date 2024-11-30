@@ -1,5 +1,5 @@
-FROM qmcgaw/gluetun:v3.27.0
-#FROM qmcgaw/gluetun:latest
+FROM qmcgaw/gluetun:latest
+#FROM qmcgaw/gluetun:v3.27.0
 
 RUN apk --update add busybox-extras
 

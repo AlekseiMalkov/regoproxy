@@ -1,7 +1,7 @@
 # alpine, busybox, scratch
 FROM ubuntu:latest
 
-RUN apt-get update && apt-get install -y net-tools sudo iputils-ping
+RUN apt-get update && apt-get install -y net-tools sudo iputils-ping wget
 
 COPY proxy /
 COPY Shanghai /etc/localtime/
