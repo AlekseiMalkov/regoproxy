@@ -1,0 +1,1 @@
+wget "https://www.duckdns.org/update?domains=rebase2&token=11346bba-f839-49b8-bd48-05fa8c074261"

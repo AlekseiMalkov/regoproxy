@@ -1,0 +1,11 @@
+--2024-11-30 11:41:24--  https://get-vpn.site/get_ca_cert.php?ZoneID=usn-2305
+Resolving get-vpn.site (get-vpn.site)... 172.67.188.41, 104.21.81.38
+Connecting to get-vpn.site (get-vpn.site)|172.67.188.41|:443... connected.
+HTTP request sent, awaiting response... 200 OK
+Length: unspecified [text/plain]
+Saving to: ‘get_ca_cert.php?ZoneID=usn-2305’
+
+get_ca_cert.php?ZoneID=usn-2305                                         [<=>                                                                                                                                                                 ]       0  --.-KB/s               get_ca_cert.php?ZoneID=usn-2305                                         [ <=>                                                                                                                                                                ]   5.52K  --.-KB/s    in 0s      
+
+2024-11-30 11:41:25 (45.8 MB/s) - ‘get_ca_cert.php?ZoneID=usn-2305’ saved [5656]
+

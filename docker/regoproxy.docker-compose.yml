@@ -2,15 +2,50 @@
 version: '3.9'
 
 services:
-  regoproxy:
-    stdin_open: true # docker run -i
-    tty: true        # docker run -t
+
+  openvpn-dedic:
+    build:
+      context: Gluetun
+      dockerfile: GlueTun.dockerfile
+    cap_add:
+      - NET_ADMIN
+    ports:
+      - 8881:8881/tcp
+      - 18881:18881/tcp
+      - 8881:8881/udp
+      - 18881:18881/udp
+    image: gluetun
+    container_name: ovpn-tzone-dedic
+    restart: unless-stopped
+
     mac_address: 02:42:ac:aa:bb:d4
     networks: 
       nginx_vlan:
         ipv4_address: 192.168.2.189
         # url to register: https://gpm.goproxyauth.com/?lang=en-US
         #machine_code d10b2cc0f5486616522d0a0280bf9d83
+
+
+    environment:
+       DOT: off
+       FIREWALL_OUTBOUND_SUBNETS: 172.22.0.0/16,10.0.0.0/24,192.168.0.0/16,34.120.119.150/32,34.173.164.90/32
+       DNS_ADDRESS: 192.168.2.1
+       OPENVPN_CUSTOM_CONFIG: /vpn/Trust.Zone-United-States-Dedicated-2305.ovpn
+       OPENVPN_USER: RP9Ry
+       OPENVPN_PASSWORD: 5ZhGVkaC
+
+       
+  regoproxy:
+    stdin_open: true # docker run -i
+    tty: true        # docker run -t
+    mac_address: 02:42:ac:aa:bb:d4
+    network_mode: "container:ovpn-tzone-dedic"    
+
+    # networks: 
+    #   nginx_vlan:
+    #     ipv4_address: 192.168.2.189
+    #     # url to register: https://gpm.goproxyauth.com/?lang=en-US
+    #     #machine_code d10b2cc0f5486616522d0a0280bf9d83
     build: 
       context: .
       dockerfile: Dockerfile

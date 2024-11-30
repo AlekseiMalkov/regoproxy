@@ -1,0 +1,3 @@
+docker run -it -d --name ovpn-client --cap-add=NET_ADMIN gluetun
+
+wget -qO- http://ipecho.net/plain | xargs echo
