@@ -2,7 +2,7 @@
 set -e
 ver=$1
 if [ -z "$ver" ]; then
-  echo -e "example:\n./build.sh 14.6"
+  echo -e "example:\n./build.sh 14.7"
 exit
 fi
 CLEAN="goproxy proxy"
@@ -17,7 +17,8 @@ tar zxf proxy-linux-amd64_commercial.tar.gz
 mv proxy ../
 cd ..
 
-
+# ./proxy keygen -C proxy
+# ./proxy keygen -s -C proxy -c goproxy
 
 docker build --no-cache -t rebase/goproxy:v$ver .
 docker tag rebase/goproxy:v$ver rebase/goproxy:latest

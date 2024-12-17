@@ -1,6 +1,15 @@
 ---
 version: '3.9'
 
+
+# for gluetun - downgrade containerd.io
+# sudo apt-get install containerd.io=1.7.23-1 
+
+
+
+
+
+
 services:
 
   openvpn-dedic:
@@ -18,12 +27,12 @@ services:
     container_name: ovpn-tzone-dedic
     restart: unless-stopped
 
-    mac_address: 02:42:ac:aa:bb:d4
+    mac_address: 02:42:ac:aa:bb:d5
     networks: 
       nginx_vlan:
         ipv4_address: 192.168.2.189
         # url to register: https://gpm.goproxyauth.com/?lang=en-US
-        #machine_code d10b2cc0f5486616522d0a0280bf9d83
+        #machine_code 8aaf342a23aecd6f70b769e617dc72e2
 
 
     environment:
