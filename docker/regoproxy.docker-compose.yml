@@ -27,12 +27,15 @@ services:
     container_name: ovpn-tzone-dedic
     restart: unless-stopped
 
-    mac_address: 02:42:ac:aa:bb:d5
+    devices:
+      - /dev/net/tun
+
+    mac_address: 02:42:ac:aa:bb:d7
     networks: 
       nginx_vlan:
         ipv4_address: 192.168.2.189
         # url to register: https://gpm.goproxyauth.com/?lang=en-US
-        #machine_code 8aaf342a23aecd6f70b769e617dc72e2
+        #machine_code db15ce4c269d50200c982bda065a95b5
 
 
     environment:
@@ -52,11 +55,11 @@ services:
     depends_on:
       openvpn-dedic:
         condition: service_healthy
+        restart: true
 
     build: 
       context: .
       dockerfile: Dockerfile
-
 networks:
   nginx_vlan:
     external: true 
