@@ -5,11 +5,6 @@ version: '3.9'
 # for gluetun - downgrade containerd.io
 # sudo apt-get install containerd.io=1.7.23-1 
 
-
-
-
-
-
 services:
 
   openvpn-dedic:
@@ -51,6 +46,8 @@ services:
     stdin_open: true # docker run -i
     tty: true        # docker run -t
     network_mode: "container:ovpn-tzone-dedic"    
+    environment:
+      URL_BALANCER: 192.168.2.31:3001
 
     depends_on:
       openvpn-dedic:
@@ -60,6 +57,7 @@ services:
     build: 
       context: .
       dockerfile: Dockerfile
+
 networks:
   nginx_vlan:
     external: true 
