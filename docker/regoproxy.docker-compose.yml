@@ -20,17 +20,17 @@ services:
       - 18881:18881/udp
     image: gluetun
     container_name: ovpn-tzone-dedic
-    restart: unless-stopped
+    restart: always
 
     devices:
       - /dev/net/tun
 
-    mac_address: 02:42:ac:aa:bb:d9
+    mac_address: 02:42:ac:aa:bb:da
     networks: 
       nginx_vlan:
         ipv4_address: 192.168.2.189
         # url to register: https://gpm.goproxyauth.com/?lang=en-US
-        #machine_code f95781bd1188ce55a78c4253f36fc284
+        #machine_code 050f700cb6494bc232566ea8a83dd45a
 
 
     environment:
@@ -45,6 +45,7 @@ services:
   regoproxy:
     stdin_open: true # docker run -i
     tty: true        # docker run -t
+    restart: always
     network_mode: "container:ovpn-tzone-dedic"    
     environment:
       URL_BALANCER: 192.168.2.31:3001
