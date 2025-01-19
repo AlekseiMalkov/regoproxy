@@ -25,12 +25,12 @@ services:
     devices:
       - /dev/net/tun
 
-    mac_address: 02:42:ac:aa:bb:da
+    mac_address: 02:42:ac:aa:bb:db
     networks: 
       nginx_vlan:
         ipv4_address: 192.168.2.189
         # url to register: https://gpm.goproxyauth.com/?lang=en-US
-        #machine_code 050f700cb6494bc232566ea8a83dd45a
+        #machine_code dfcd0c25ab05f34adc21a5795e35df95
 
 
     environment:
